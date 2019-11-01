@@ -1,14 +1,13 @@
 /*price range*/
 
- $('#sl2').slider();
-
-    $('.catalog').dcAccordion({
-        speed: 300
-    });
+    $('#sl2').slider();
     $("#zoom").on("click", function() {
         $('#preview').attr('src', $('#image').attr('src'));
         $('#modal').modal('show');
 
+    });
+    $('.catalog').dcAccordion({
+        speed: 300
     });
     function showCart(cart){
         $('#cart .modal-body').html(cart);

@@ -29,4 +29,8 @@ class Product extends ActiveRecord{
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
+    public function getShortText($name){
+        $name = mb_substr($name,0,40,'UTF-8');
+        return $name . '...';
+    }
 }

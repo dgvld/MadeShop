@@ -5,6 +5,7 @@ use app\components\MenuWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+use app\models\Product;
 ?>
 <section id="slider"><!--slider-->
     <div class="container">
@@ -86,7 +87,9 @@ use yii\widgets\LinkPager;
                     if($kl==1){
                         echo '<div class="row">';
                     }
+                  //  Product::getShortText($hit->name)
                     ?>
+
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
@@ -94,7 +97,7 @@ use yii\widgets\LinkPager;
                                     <?php $img=$hit->getImage();
                                     echo Html::img($img->getUrl('x240'),['alt'=>'Image product'])?>
                                     <h2>$<?=$hit->price?></h2>
-                                    <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name?></a></p>
+                                    p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name?></a></p>
                                     <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $hit->id])?>" data-id="<?= $hit->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Выбрать товар</a>
                                 </div>
                                 <!--
