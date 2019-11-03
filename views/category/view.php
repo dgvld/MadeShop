@@ -21,12 +21,12 @@ use yii\widgets\LinkPager;
 
     <div class="col-sm-9 padding-right">
         <div class="features_items"><!--features_items-->
-            <?php if(empty($productss)): ?>
-                <h2 class="title text-center">Products not found</h2>
+            <?php if(empty($products)): ?>
+                <h2 class="title text-center">Товары не найдены</h2>
             <?php endif; ?>
 
             <?php if(!empty($products)): ?>
-                <h2 class="title text-center">Found <?=$count_record?> products category: <?=$category->name?>.</h2>
+                <h2 class="title text-center">Товары <?=$count_record?> категории: <?=$category->name?></h2>
                 <?php $kl=0?>
                 <?php foreach($products as $product):?>
                     <?php $kl+=1;
@@ -40,25 +40,19 @@ use yii\widgets\LinkPager;
                                 <div class="productinfo text-center">
                                     <?php $img=$product->getImage();
                                     echo Html::img($img->getUrl('x240'),['alt'=>'Image product'])?>
-                                    <h2>$<?=$product['price']?></h2>
+                                    <h2><?=$product['price']?> руб.</h2>
                                     <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><?= $product->name?></a></p>
-                                    <a href="#" data-id="<?= $product->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="#" data-id="<?= $product->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                 </div>
 
                                 <?php
                                 if($product['new']=='1'){
-                                    echo Html::img('@web/images/home/new_left.png', ['alt' => 'New', 'class' => 'newarrival']);
+                                    echo Html::img('@web/images/home/new.png', ['alt' => 'New', 'class' => 'new']);
                                 }
                                 if($product['sale']=='1'){
                                     echo Html::img('@web/images/home/sale.png', ['alt' => 'Sale', 'class' => 'new']);
                                 }
                                 ?>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 /*price range*/
 
     $('#sl2').slider();
+    $('[data-toggle="tooltip"]').tooltip();
     $("#zoom").on("click", function() {
         $('#preview').attr('src', $('#image').attr('src'));
         $('#modal').modal('show');

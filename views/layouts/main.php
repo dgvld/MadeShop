@@ -40,6 +40,7 @@ ltAppAsset::register($this);
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
                             <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+                            <li><a href="#"><?= Html::img('@web/images/home/viber.png', ['alt' => 'Viber', 'height' => 15])?> Viber</a></li>
                             <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
 
                         </ul>
@@ -47,7 +48,7 @@ ltAppAsset::register($this);
                 </div>
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav data-toggle="tooltip" data-placement="bottom" title="ВКонтакте"">
                             <li><a href="https://vk.com/club54040566"><i class="fa fa-vk"></i></a></li>
                         </ul>
                     </div>
@@ -90,8 +91,9 @@ ltAppAsset::register($this);
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="<?= \yii\helpers\Url::home(); ?>" class="active">Главная</a></li>
-                            <li><a href="/cart/view">Доставка</a></li>
-                            <li><a href="contact-us.html">Контакты</a></li>
+                            <li><a href="/site/view">Доставка и оплата</a></li>
+                            <li><a href="/cart/view">Как купить</a></li>
+                            <li><a href="/site/contact">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
@@ -112,69 +114,50 @@ ltAppAsset::register($this);
 <footer id="footer"><!--Footer-->
     <div class="footer-widget">
         <div class="container">
-                    <div class="col-sm-3">
-                        <div class="companyinfo">
-                            <h2><span>LIVE</span>-SNEAKERS</h2>
-                            <p>Кроссовки по доступным ценам.</p>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="companyinfo">
+                        <h2><span>LIVE</span>-SNEAKERS</h2>
+                        <p>Кроссовки по доступным ценам.</p>
                     </div>
-                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-3">
                     <div class="single-widget">
-                        <h2>Service</h2>
+                        <h2>ТОВАРЫ</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Online Help</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Change Location</a></li>
-                            <li><a href="#">FAQ’s</a></li>
+                            <li><a class="disabled">Кроссовки</a></li>
+                            <li><a class="disabled">Кеды</a></li>
+                            <li><a class="disabled">Бутсы</a></li>
+                            <li><a class="disabled">Шлепанцы</a></li>
+                            <li><a class="disabled">Балетки</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <div class="single-widget">
-                        <h2>Quock Shop</h2>
+                        <h2>СЕРВИС И ПОМОЩЬ</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Mens</a></li>
-                            <li><a href="#">Womens</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                            <li><a href="#">Shoes</a></li>
+                            <li><a href="#">Доставка и оплата</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <div class="single-widget">
-                        <h2>Policies</h2>
+                        <h2>КОНТАКТЫ</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privecy Policy</a></li>
-                            <li><a href="#">Refund Policy</a></li>
-                            <li><a href="#">Billing System</a></li>
-                            <li><a href="#">Ticket System</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>About Shopper</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Company Information</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Store Location</a></li>
-                            <li><a href="#">Affillate Program</a></li>
-                            <li><a href="#">Copyright</a></li>
+                            <li><a class="disabled">Телефон: +2 95 01 88 821</a></li>
+                            <li><a class="disabled">E-mail: info@domain.com</a></li>
+                            <li><a class="disabled">Мессенджеры: <?= Html::img('@web/images/home/viber.png', ['alt' => 'Viber', 'height' => 15])?></a></li>
+                            <li><a class="disabled">Социальные сети:</a><a href="https://vk.com/club54040566"><i class="fa fa-vk"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">© 2019 «LIVE-SNEAKERS»</p>
-                <p class="pull-left">Информация на сайте «LIVE-SNEAKERS» не является публичной офертой. Указанные цены действуют только при оформлении заказа через интернет-магазин.</p>
+                <p class="text-center">© 2019 «LIVE-SNEAKERS»</p>
+                <p class="pull-left">Информация на сайте «LIVE-SNEAKERS» не является публичной офертой. Указанные цены действуют только при оформлении заказа через интернет-магазин</p>
             </div>
         </div>
     </div>
@@ -187,7 +170,7 @@ ltAppAsset::register($this);
     'id' => 'cart',
     'size' => 'modal-lg',
     'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-        <a href="' . \yii\helpers\Url::to(['cart/view']) . '" class="btn btn-success">Оформить заказ</a>
+        <a href="' . \yii\helpers\Url::to(['cart/view']) . '" class="btn btn-success">Приобрести</a>
         <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>'
 ]);
 

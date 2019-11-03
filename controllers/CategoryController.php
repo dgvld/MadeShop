@@ -16,19 +16,9 @@ class CategoryController extends AppController{
 
     public function actionIndex()
     {
-        $request=Product::find()->where(['hit'=>'1']);
-
-        $pages=new Pagination([
-        'totalCount' => $request->count(),
-        'pageSize'=>3,
-        'forcePageParam'=>false,
-        'pageSizeParam'=>false,
-        ]);
-        $hit_mas=$request->offset($pages->offset)->limit($pages->limit)->all();
-            //mas_print($hit_mas);
         $rec_products=Product::find()->where(['hit'=>'1'])->all();
-        $this->setMeta('E-Shoper');
-        return $this->render('index',compact('hit_mas','pages','rec_products'));
+        $this->setMeta('LIVE-SNEAKERS');
+        return $this->render('index',compact('rec_products'));
     }
     public function actionView($id){
 //        $id = Yii::$app->request->get('id');
@@ -41,13 +31,13 @@ class CategoryController extends AppController{
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 6, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
         $count_record=$query->count();
-        $this->setMeta('E-SHOPPER | ' . $category->name, $category->keywords, $category->description);
+        $this->setMeta('LIVE-SNEAKERS | ' . $category->name, $category->keywords, $category->description);
         return $this->render('view', compact('products', 'pages', 'category'));
     }
 
     public function actionSearch(){
         $q = trim(Yii::$app->request->get('q'));
-        $this->setMeta('E-SHOPPER | Поиск: ' . $q);
+        $this->setMeta('LIVE-SNEAKERS | Поиск: ' . $q);
         if(!$q)
             return $this->render('search');
         $query = Product::find()->where(['like', 'name', $q]);

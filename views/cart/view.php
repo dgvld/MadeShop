@@ -53,14 +53,58 @@ use yii\widgets\ActiveForm;
             </table>
         </div>
         <hr/>
-        <?php $form = ActiveForm::begin()?>
-        <?= $form->field($order, 'name')?>
-        <?= $form->field($order, 'email')?>
-        <?= $form->field($order, 'phone')?>
-        <?= $form->field($order, 'address')?>
-        <?= Html::submitButton('Заказать', ['class' => 'btn btn-success'])?>
-        <?php ActiveForm::end()?>
     <?php else: ?>
         <h3>Корзина пуста</h3>
     <?php endif;?>
+
+    <!--=== Content Part ===-->
+    <section class="padding-xxs">
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-12 sx-content">
+                    <h2><span style="font-family: Arial, Helvetica; font-size: 16pt;">
+                            <b>Как купить.</b>
+                        </span>
+                    </h2>
+                    <span style="font-family: Arial, Helvetica;">
+                               Для оформления заявки на товар по телефону +2 95 01 88 821 назовите название
+                        и артикул товара из каталога оператору интернет-магазина. По ним он сможет ответить
+                        на любые интересующие Вас вопросы, касающиеся приобретения товара.
+                    </span><br>
+                    <span style="font-family: Arial, Helvetica;">
+                              Для оформления заказа по мессенджеру Viber или социальной сети ВКонтакте скопируйте
+                        назавание и артикул товара из каталога, либо сделайте скриншот корзины и отправьте Ваше сообщение.
+                    </span>
+
+                    <h2><span style="font-family: Arial, Helvetica; font-size: 16pt;">
+                            <b>Самовывоз в г. Ижевск.</b>
+                        </span>
+                    </h2>
+                    <p>
+                        <span style="font-family: Arial, Helvetica;">
+                                Вы можете самостоятельно забрать заказ из нашего магазина в рабочее
+                            время на 9 Января, 223.
+                        </span>
+                    </p>
+                    <span style="font-family: Arial, Helvetica;"> </span>
+                    <h2>
+                        <span style="font-family: Arial, Helvetica;"> <b>
+                                <span style="font-size: 16pt;">
+                                    Доставка курьером по Ижевску.
+                                </span></b>
+                        </span>
+                    </h2>
+                    <p>
+                        <span style="font-family: Arial, Helvetica;">
+                             Осуществляется доставка товара по городу Ижевску. Доставка осуществляется в будни.
+                             Время доставки обговаривается с оператором.
+                             Доставка по Ижевску составляет 100 рублей.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br><br>
 </div>

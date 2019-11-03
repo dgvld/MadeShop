@@ -106,7 +106,6 @@ class CartController extends AppController{
         }
         return $this->render('view', compact('session', 'order'));
     }
-
     protected function saveOrderItems($items, $order_id){
         foreach($items as $id => $item){
             $order_items = new OrderItems();

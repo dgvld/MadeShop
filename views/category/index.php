@@ -78,17 +78,11 @@ use app\models\Product;
 </div>
 
     <div class="col-sm-9 padding-right">
-        <?php if(!empty($hit_mas)): ?>
+        <?php if(!empty($rec_products)): ?>
             <div class="features_items"><!--features_items-->
-                <h2 class="title text-center">Features Items</h2>
-                <?php $kl=0?>
-                <?php foreach($hit_mas as $hit):?>
-                    <?php $kl+=1;
-                    if($kl==1){
-                        echo '<div class="row">';
-                    }
-                  //  Product::getShortText($hit->name)
-                    ?>
+                <h2 class="title text-center">Рекомендуемые товары</h2>
+
+                <?php foreach($rec_products as $hit):?>
 
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
@@ -96,9 +90,9 @@ use app\models\Product;
                                 <div class="productinfo text-center">
                                     <?php $img=$hit->getImage();
                                     echo Html::img($img->getUrl('x240'),['alt'=>'Image product'])?>
-                                    <h2>$<?=$hit->price?></h2>
-                                    p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name?></a></p>
-                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $hit->id])?>" data-id="<?= $hit->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Выбрать товар</a>
+                                    <h2><?=$hit->price?> руб.</h2>
+                                    <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name?></a></p>
+                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $hit->id])?>" data-id="<?= $hit->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                 </div>
                                 <!--
                                     <div class="product-overlay">
@@ -110,104 +104,23 @@ use app\models\Product;
                                     </div>-->
                                 <?php
                                 if($hit->new=='1'){
-                                    echo Html::img('@web/images/home/new_left.png', ['alt' => 'New', 'class' => 'newarrival']);
+                                    echo Html::img('@web/images/home/new.png', ['alt' => 'New', 'class' => 'new']);
                                 }
                                 if($hit->sale=='1'){
                                     echo Html::img('@web/images/home/sale.png', ['alt' => 'Sale', 'class' => 'new']);
                                 }
                                 ?>
                             </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
-                    <?php
-                    if($kl==3) {
-                        echo '</div >';
-                        $kl=0;
-                    }
-                    ?>
+
                 <?php endforeach;?>
-                <?php
-                if(!($kl==0)) {
-                    echo '</div >';
-                }
-                // display pagination
-                echo LinkPager::widget([
-                    'pagination' => $pages,
-                ]);
-                ?>
+
 
             </div><!--features_items-->
         <?php endif;?>
-        <?php if(!empty($rec_products)):?>
-            <div class="recommended_items"><!--recommended_items-->
-                <h2 class="title text-center">recommended items</h2>
 
-                <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <?php
-                        $index_col=0;
-                        $item_count=0;
-                        foreach($rec_products as $rec_product):?>
-                            <?php
-                            $index_col++;
-                            if($index_col==1){
-                                if($item_count==0){
-                                    echo '<div class="item active">';
-                                }else{
-                                    echo '<div class="item">';
-                                }
-                                $item_count++;
-                            }
-                            ?>
-                            <div class="col-sm-4">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <?php $img=$rec_product->getImage();
-                                            echo Html::img($img->getUrl('x180'),['alt'=>'Image product'])?>
-                                            <h2>$<?=$rec_product->price?></h2>
-                                            <p><a href="<?=Url::to(['product/view','id'=>$rec_product->id])?>" class="product_url"><?=$rec_product->name?></a></p>
-                                            <a href="<?=Url::to(['cart/add','id_add'=>$rec_product->id])?>" data-id_add="<?=$rec_product->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </div>
-                                    </div>
-
-                                    <?php
-                                    if($rec_product->new=='1'){
-                                        echo Html::img('@web/images/home/new_left.png', ['alt' => 'New', 'class' => 'newarrival']);
-                                    }
-                                    if($rec_product->sale=='1'){
-                                        echo Html::img('@web/images/home/sale.png', ['alt' => 'Sale', 'class' => 'new']);
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <?php
-                            if($index_col==3){
-                                echo '</div>';
-                                $index_col=0;
-                            }
-                            ?>
-                        <?php endforeach;
-                        if(!($index_col==0)){
-                            echo '</div>';
-                        }
-                        ?>
-                    </div>
-                    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </div><!--/recommended_items-->
-        <?php endif;?>
+</div>
 </div>
 </div>
 </section>

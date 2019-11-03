@@ -1,0 +1,16 @@
+ public function actionIndex()
+    {
+        $request=Product::find()->where(['hit'=>'1']);
+
+        $pages=new Pagination([
+        'totalCount' => $request->count(),
+        'pageSize'=>3,
+        'forcePageParam'=>false,
+        'pageSizeParam'=>false,
+        ]);
+        $hit_mas=$request->offset($pages->offset)->limit($pages->limit)->all();
+            //mas_print($hit_mas);
+        $rec_products=Product::find()->where(['hit'=>'1'])->all();
+        $this->setMeta('LIVE-SNEAKERS');
+        return $this->render('index',compact('hit_mas','pages','rec_products'));
+    }
